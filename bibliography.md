@@ -136,6 +136,30 @@
     <incorrect_example>1. Иванов...</incorrect_example>
   </rule>
 
+    <rule id="9" name="quotation_marks_in_title">
+    <description>Названия источников приводятся без кавычек. В образце кавычки вокруг названий не используются.</description>
+    <correct_example>Foundations of Statistical Natural Language Processing [Текст]</correct_example>
+    <incorrect_example>«Foundations of Statistical Natural Language Processing» [Текст]</incorrect_example>
+    <error_patterns>
+      <pattern>Название обёрнуто в кавычки « » или " "</pattern>
+    </error_patterns>
+  </rule>
+
+  <rule id="10" name="publisher">
+    <description>Выходные данные книги включают место, издательство и год в формате "Место: Издательство, Год." Указание только города и страны без издательства — ошибка.</description>
+    <correct_example>– М.: Физматлит, 2002. – 630 с.</correct_example>
+    <incorrect_examples>
+      <incorrect_example reason="нет издательства">– Лондон, Великобритания 2000 – 704 с.</incorrect_example>
+      <incorrect_example reason="нет двоеточия и издательства">– Стэнфорд, Калифорния 2008 – 764 с.</incorrect_example>
+    </incorrect_examples>
+    <applies_to>Книги, монографии, учебные пособия, диссертации, сборники — любые печатные издания с [Текст]</applies_to>
+    <does_not_apply_to>Электронные ресурсы без физического издания</does_not_apply_to>
+    <error_patterns>
+      <pattern>Издательство отсутствует — указан только город (и/или страна) перед годом</pattern>
+      <pattern>Между местом и годом нет двоеточия с издательством</pattern>
+      <pattern>Страна указана вместе с городом через запятую вместо издательства</pattern>
+    </error_patterns>
+  </rule>
 </rules>
 
 <not_errors>
@@ -147,7 +171,7 @@
 <output_format>
   <type>.docx</type>
   <structure>
-    Группировка по правилам 1–8. Для каждой группы, в которой есть найденные ошибки:
+    Группировка по правилам 1–10. Для каждой группы, в которой есть найденные ошибки:
     - Заголовок одной строкой: «Правило N. Название»
     - Таблица с тремя колонками: № источника | Фрагмент из работы студента | В чём ошибка (кратко)
   </structure>
